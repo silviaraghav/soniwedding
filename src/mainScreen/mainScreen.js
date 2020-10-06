@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import "./style/mainscreen.css";
+// import Img from "./img1.jpg";
 
 export default function MainScreen() {
   const calculateTimeLeft = () => {
@@ -19,30 +20,28 @@ export default function MainScreen() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
   }, [timeLeft]);
 
   return (
-    <div className="main">
-      <div className="">
-        <h1>
-          <i>You are invited to the wedding joining the lives of</i>
-          <br />
-        </h1>
-      </div>
-      <div>
-        <h2>
-          Miss Udita <br />
-          &nbsp; &nbsp; &nbsp;to <br />
-          Mr Manish <br />
-          On Friday 11th december 2020
-        </h2>
-      </div>
+    <Fragment>
+      <img
+        src="/img1.jpg"
+        alt="wedding"
+        style={{ width: "100vw", height: "50vh" }}
+      />
 
-      <div>
-        <form>
+      <div className="main">
+        <div className="disc">
+          <span>
+            You are invited to the wedding joining the lives of <br />
+            <b>Miss Udita &amp; Mr Manish </b> <br />
+            On Friday 11th december 2020
+          </span>
+        </div>
+        {/* <form>
           <div className="form-group row">
             <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
               Name
@@ -77,17 +76,41 @@ export default function MainScreen() {
               </button>
             </div>
           </div>
-        </form>
-        <div>
-          <span>Days: {timeLeft ? timeLeft.days : ""}</span>
+        </form> */}
 
-          <span> Hours:{timeLeft ? timeLeft.hours : ""}</span>
-
-          <span> Minutes:{timeLeft ? timeLeft.minutes : ""}</span>
-
-          <span> Seconds:{timeLeft ? timeLeft.seconds : ""}</span>
+        <div class="count-down">
+          <div className="timer-disc">
+            <span>We are Waiting for...The Big Day</span>
+          </div>
+          <div className="timer">
+            <span className="">
+              Days: <br />
+              {timeLeft ? timeLeft.days : ""}
+            </span>
+          </div>
+          <div className="timer">
+            <span className="">
+              Hours:
+              <br />
+              {timeLeft ? timeLeft.hours : ""}
+            </span>
+          </div>
+          <div className="timer">
+            <span className="">
+              Minutes:
+              <br />
+              {timeLeft ? timeLeft.minutes : ""}
+            </span>
+          </div>
+          <div className="timer">
+            <span className="">
+              Seconds:
+              <br />
+              {timeLeft ? timeLeft.seconds : ""}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
