@@ -1,9 +1,9 @@
 .main {
   display: flex;
-  margin: auto;
+  /* margin: auto; */
   flex-direction: column;
   align-items: center;
-  margin-top: -30vh;
+  /* margin-top: -30vh; */
 }
 .hstyle {
   width: 50vw;
@@ -41,5 +41,8 @@
   margin-right: 0.1rem;
   font-family: fantasy;
 }
-.disc {
+.leaflet-container{
+height: 30vh;
+width: 50vw;
 }
+
